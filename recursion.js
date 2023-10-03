@@ -1,19 +1,26 @@
 /** product: calculate the product of an array of numbers. */
 
 function product(nums) {
+  if (nums.length === 0) return 1;
 
+  return nums[0] * product(nums.slice(1));
 }
 
 /** longest: return the length of the longest word in an array of words. */
 
 function longest(words) {
+  if (words.length === 0) return 0;
 
+  let longestWord = words[0].length;
+  return Math.max(longestWord, longest(words.slice(1)));
 }
 
 /** everyOther: return a string with every other letter. */
 
 function everyOther(str) {
+  if (!str) return "";
 
+  return str[0] + everyOther(str.slice(2));
 }
 
 /** find: return boolean depending on if val exists in array or not. */
