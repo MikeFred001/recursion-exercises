@@ -26,25 +26,33 @@ function everyOther(str) {
 /** find: return boolean depending on if val exists in array or not. */
 
 function find(arr, val) {
+  if (arr.length === 0) return false;
+  if (arr[0] === val) return true;
 
+  return find(arr.slice(1), val);
 }
 
 /** isPalindrome: checks whether a string is a palindrome or not. */
 
 function isPalindrome(str) {
+  if (str.length < 2) return true;
+  if (str[0] !== str[str.length - 1]) return false;
 
+  return isPalindrome(str.slice(1, str.length - 1));
 }
 
 /** revString: return a copy of a string, but in reverse. */
 
 function revString(str) {
+  if (str.length === 0) return "";
 
+  return str[str.length - 1] + revString(str.slice(0, str.length - 1));
 }
 
 /** findIndex: return the index of val in arr (or -1 if val is not present). */
 
 function findIndex(arr, val) {
-
+  if (arr.length === 0) return -1;
 }
 
 /** gatherStrings: given an object, return an array of all of the string values. */

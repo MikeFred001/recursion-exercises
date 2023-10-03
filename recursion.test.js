@@ -64,6 +64,15 @@ describe("isPalindrome", function() {
   });
 });
 
+describe("revString", function() {
+  it("returns a reversed copy of the string", function() {
+    expect(revString("")).toBe("");
+    expect(revString("x")).toBe("x");
+    expect(revString("cat")).toBe("tac");
+    expect(revString("duck")).toBe("kcud");
+  });
+});
+
 describe("findIndex", function() {
   let animals = ["duck", "cat", "cat", "pony"];
 
@@ -78,14 +87,6 @@ describe("findIndex", function() {
   });
 });
 
-describe("revString", function() {
-  it("returns a reversed copy of the string", function() {
-    expect(revString("")).toBe("");
-    expect(revString("x")).toBe("x");
-    expect(revString("cat")).toBe("tac");
-    expect(revString("duck")).toBe("kcud");
-  });
-});
 
 describe("gatherStrings", function() {
   it("gathers all object string values into an array", function() {
