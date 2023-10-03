@@ -52,13 +52,40 @@ function revString(str) {
 /** findIndex: return the index of val in arr (or -1 if val is not present). */
 
 function findIndex(arr, val) {
+  //base
   if (arr.length === 0) return -1;
+
+  if (arr[0] === val) return 0;
+
+  //pare down arr while tracking # of iterations; # corresponds to idx
+  //["duck", "cat", "cat", "pony"] cat = 1
+  //iteration 1: 0, false
+  //iteration 2: 1, true -> return 1
+
+  if (findIndex(arr.slice(1), val) === -1) {
+    return -1;
+  } else {
+    return findIndex(arr.slice(1), val) + 1;
+  }
 }
 
 /** gatherStrings: given an object, return an array of all of the string values. */
 
 function gatherStrings(obj) {
-
+  //base case: no values remaining, return [vals]
+  //iterate through values in obj
+  //if value is obj, iterate through values in obj (recursive)
+  //else if typeof value === "string" push to [vals]
+  let vals = [];
+  for (let item in obj) {
+    if (typeof obj[item] === "string") {
+      vals.push(obj[item]);
+    }
+    if (typeof obj[item] === "object") {
+      vals.push(...gatherStrings(obj[item]));
+    }
+  }
+  return vals;
 }
 
 // FURTHER STUDY
